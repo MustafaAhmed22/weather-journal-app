@@ -5,7 +5,7 @@
 let d = new Date();
 let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
-let URL ='http://api.openweathermap.org/data/2.5/forecast?id=524901&appid='
+let URL ='http://api.openweathermap.org/data/2.5/forecast?zip=&appid='
 const KEY ='c5eb172d4c9aabe88bf6a2fa5dc7a42d'
 const zip = document.getElementById('zip').value
 const feelings = document.getElementById('feelings').value
