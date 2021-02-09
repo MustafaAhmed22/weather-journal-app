@@ -29,8 +29,8 @@ app.post('/add',(req,res)=>{
     console.log(req.body)
     projectData ={
         date : req.body.date,
-        temp :req.body.temp,
-        content : req.body.content
+        temprature :req.body.temprature,
+        feeling : req.body.feeling
     }
         res.send(projectData).status(200)
 
