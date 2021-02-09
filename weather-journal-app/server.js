@@ -33,5 +33,7 @@ app.post('/add',(req,res)=>{
         feeling : req.body.feeling
     }
         res.send(projectData).status(200)
+        res.end()
+        console.log(projectData)
 
 })
