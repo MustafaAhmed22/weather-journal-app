@@ -5,8 +5,8 @@
 let d = new Date();
 let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
-let URL ='http://api.openweathermap.org/data/2.5/forecast?zip=&appid='
-const KEY ='c5eb172d4c9aabe88bf6a2fa5dc7a42d'
+let URL ='http://api.openweathermap.org/data/2.5/weather?zip='
+const KEY ='&appid=c5eb172d4c9aabe88bf6a2fa5dc7a42d'
 const zip = document.getElementById('zip').value
 const feelings = document.getElementById('feelings').value
 console.log(feelings)
@@ -14,7 +14,7 @@ document.getElementById('generate').addEventListener('click',(e)=>{
 console.log(feelings)
     getTempData(URL,zip ,KEY).then((data)=>{
         console.log(data)
-    postData('/add',{date :newDate,feeling:feelings ,temprature :data.list[0].main.temp })
+    postData('/add',{date :newDate,feeling:feelings ,temprature :data.main.temp })
     })
     .then(()=>{
         update()
@@ -54,10 +54,10 @@ const postData =async (url='' ,data={})=>{
 const update =async ()=>{
     const request =await fetch('/all')
     try{
-        const alldata = request.json()
-        document.getElementById('data').innerHTML =`date : ${alldata.date}`
-        document.getElementById('temp').innerHTML =`temp : ${alldata.temprature}`
-        document.getElementById('content').innerHTML =`feeling : ${alldata.feeling}`
+        const alldata =await request.json()
+        document.getElementById('date').innerHTML =`date : ${alldata.date}`
+        document.getElementById('temprature').innerHTML =`temp : ${alldata.temprature}`
+        document.getElementById('feeling').innerHTML =`feeling : ${alldata.feeling}`
     }catch(error){
         console.log(error)
     }
