@@ -1,6 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
-import * as express from 'express';
 // Require Express to run server and routes
 const express =require ('express')
 const bodyParser =require('body-parser')
